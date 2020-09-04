@@ -1,25 +1,26 @@
-var lowerCaseAlph =
-    [
-        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-    ];
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var lowerCase = "abcdefghijklmnopqrstuvwxyz"
+var numbers = "0123456789"
+var symbols = "~!@#$%^&*()_+=-`"
 
-var upperCaseAlph =
-    [
-        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
-    ];
 
-var numbersAll = [
-    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
-];
-
-function getPass() {
-    var length =
-        parseInt(
-            prompt("How many characters would you like it your password?"));
-    if (length < 8) {
-        alert("Password must be longer than 12")
+document.querySelector('#generate').addEventListener('click', function() {
+    var passLength = parseInt(prompt("How many characters would you like your password to be?"))
+    if (isNaN(passLength)) {
+        alert("You must enter a number.")
+        return("NOT A NUMBER!")
     }
-
-    confirm("Do you want any special characters in your password?");
-}
-
+    else if (passLength < 8) {
+        alert("Passwords must be at least 8 characters long.")
+        return("Not long enough")
+    }
+    else if (passLength > 128) {
+        alert("Passwords cannot be longer than 128 characters.")
+        return("Too long")
+    }
+    var passUp = confirm ("Would you like upper case letters in your password?");
+    var passLow = confirm ("Would you like lower case letters in your password?");
+    var passNum = confirm ("Would you like numbers in your password?");
+    var PassSym = confirm ("Would you like special characters in your password?");
+    console.log(passLength, passUp, passLow, passNum, PassSym)
+})
