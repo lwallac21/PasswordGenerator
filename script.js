@@ -1,4 +1,6 @@
 //DOM elements
+var passwordEl = document.getElementById(#password)
+var generateEl = document.getElementById(#generate)
 
 // Strings for getting random letters and numbers
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -11,36 +13,54 @@ document.querySelector('#generate').addEventListener('click', function() {
     var passLength = parseInt(prompt("How many characters would you like your password to be?"))
     if (isNaN(passLength)) {
         alert("You must enter a number.")
-        return("NOT A NUMBER!")
+        return("notValid")
     }
     else if (passLength < 8) {
         alert("Passwords must be at least 8 characters long.")
-        return("Not long enough")
+        return("notValid")
     }
     else if (passLength > 128) {
         alert("Passwords cannot be longer than 128 characters.")
-        return("Too long")
-    }
-    var passUp = confirm ("Would you like upper case letters in your password?");
-    var passLow = confirm ("Would you like lower case letters in your password?");
-    var passNum = confirm ("Would you like numbers in your password?");
-    var PassSym = confirm ("Would you like special characters in your password?");
+        return("notValid")
 
+    }
     
-    console.log(passLength)
-    console.log(passUp)
-    console.log(passLow)
-    console.log(passNum)
-    console.log(PassSym)
-})
+    var passUp = confirm ("Would you like upper case letters in your password?");
+        if (passUp == true) {
+            return true
+        }
+    var passLow = confirm ("Would you like lower case letters in your password?");
+        if (passLow == true) {
+            return true
+        }
+    var passNum = confirm ("Would you like numbers in your password?");
+        if (passNum == true) {
+            return true
+        }
+    var PassSym = confirm ("Would you like special characters in your password?");
+        if (passSym == true) {
+            return true
+        }
+    var hasLength = passLength.value;
+    var hasUpper = passUp.value;
+    var hasLower = passLow.value;
+    var hasNum = passNum.value;
+    var hasSym = passSym.value;
+    passwordEL.innertext = generatePassword(hasLength, hasUpper, hasLower, hasNum, hasSym)
+});
+
+// generate password function
+
+
 
 var randomFunctions = {
     upper: getUpper,
     lower: getLower,
     nums: getNumbers,
     syms: getSymbols,
-}
+};
 
+// Random genrator functions
 function getLower() {
     return lowerCase.charAt(Math.floor(Math.random()*lowerCase.length));
 }
