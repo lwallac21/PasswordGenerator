@@ -68,8 +68,6 @@ generateEl.addEventListener('click', function () {
         var newPassword = "";
         var typesCount = lower + upper + nums + syms;
 
-        console.log(typesCount);
-
         // Get rid of false types from the array used in the loop
         var typesArray = [{ lower }, { upper }, { nums }, { syms }].filter(
             item => Object.values(item)[0]
@@ -79,16 +77,17 @@ generateEl.addEventListener('click', function () {
 
         // For Loop within for loop with breaks to stop generating at passLength integer
         for (var i = 0; i < passLength; i++) {
-            if (newPassword.length >= passLength ) {
-                break}
+            if (newPassword.length >= passLength) {
+                break
+            }
             for (var j = 0; j < typesArray.length; j++) {
 
-               if (newPassword.length >=passLength) {
-                   break
-               }
+                if (newPassword.length >= passLength) {
+                    break
+                }
                 if (Object.keys(typesArray[j])[0] === "lower") {
                     newPassword += randomFunctions.lower()
-                    
+
                 }
                 else if (Object.keys(typesArray[j])[0] === "upper") {
                     newPassword += randomFunctions.upper()
@@ -106,6 +105,9 @@ generateEl.addEventListener('click', function () {
         };
         console.log(newPassword)
         console.log(newPassword.length)
+        return newPassword
+        
     }
+            document.getElementById("password").innerHTML = generatePassword(newPassword);
 });
 
