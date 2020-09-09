@@ -1,5 +1,5 @@
 //DOM elements
-var passwordEl = document.getElementById("password")
+var passwordEl = document.getElementById("newPassword")
 var generateEl = document.getElementById("generate")
 
 // Strings for getting random letters and numbers
@@ -54,9 +54,9 @@ generateEl.addEventListener('click', function () {
 
     // Saving confirm values to variables
     var hasLower = passLow;
-    hasUpper = passUp;
-    hasNumber = passNum;
-    hasSymbol = passSym;
+    var hasUpper = passUp;
+    var hasNumber = passNum;
+    var hasSymbol = passSym;
 
 
     generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, passLength)
@@ -103,11 +103,11 @@ generateEl.addEventListener('click', function () {
 
 
         };
+        alert("Your new password is: " + newPassword)  
         console.log(newPassword)
         console.log(newPassword.length)
-        return newPassword
+             
         
     }
-            document.getElementById("password").innerHTML = generatePassword(newPassword);
+     
 });
-
