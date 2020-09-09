@@ -1,5 +1,4 @@
 //DOM elements
-var passwordEl = document.getElementById("newPassword")
 var generateEl = document.getElementById("generate")
 
 // Strings for getting random letters and numbers
