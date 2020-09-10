@@ -1,4 +1,4 @@
-//DOM elements
+//DOM elements                             
 var generateEl = document.getElementById("generate")
 
 // Strings for getting random letters and numbers
@@ -23,7 +23,7 @@ var randomFunctions = {
     }
 }
 
-
+var newPassword = "";
 // Prompts and Confirms for password parameters
 generateEl.addEventListener('click', function () {
     var passLength = parseInt(prompt("How many characters would you like your password to be?"))
@@ -64,7 +64,7 @@ generateEl.addEventListener('click', function () {
     function generatePassword(lower, upper, nums, syms, passLength) {
 
 
-        var newPassword = "";
+
         var typesCount = lower + upper + nums + syms;
 
         // Get rid of false types from the array used in the loop
@@ -100,13 +100,14 @@ generateEl.addEventListener('click', function () {
                 }
             }
 
+        }
 
-        };
-        alert("Your new password is: " + newPassword)  
-        console.log(newPassword)
-        console.log(newPassword.length)
-             
-        
-    }
-     
+    };
+// shuffle function on the new password
+    var shuffle = newPassword => newPassword.split('').sort(()=>(Math.random()-0.5)).join('');
+
+    alert("Your new password is: " + shuffle(newPassword))
+
+
+
 });

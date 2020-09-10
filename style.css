@@ -1,3 +1,28 @@
+html {
+    height: 100%;
+}
 body {
-    background-color: azure
+    height: 100%;
+}
+section {
+    background-color: black;
+}
+
+.fullscreen {
+    min-height: 100%;
+    height: 100%;
+}
+
+.title {
+    color: ;
+}
+
+h2 {
+    animation: color-change 1s infinite
+}
+
+@keyframes color-change {
+    0% {color: black}
+    50% {color: yellow}
+    100% {color: orangered}
 }
