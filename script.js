@@ -1,5 +1,5 @@
 //DOM elements                             
-var generateEl = document.getElementById("generate")
+var generateEl = document.getElementById("generate");
 
 // Strings for getting random letters and numbers
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -25,7 +25,8 @@ var randomFunctions = {
 
 var newPassword = "";
 // Prompts and Confirms for password parameters
-generateEl.addEventListener('click', function () {
+generateEl.addEventListener('click', function (event) {
+    
     var passLength = parseInt(prompt("How many characters would you like your password to be?"))
     if (isNaN(passLength)) {
         alert("You must enter a number.")
@@ -106,8 +107,7 @@ generateEl.addEventListener('click', function () {
 // shuffle function on the new password
     var shuffle = newPassword => newPassword.split('').sort(()=>(Math.random()-0.5)).join('');
 
-    alert("Your new password is: " + shuffle(newPassword))
 
-
+    document.getElementById("password").value = shuffle(newPassword);
 
 });
