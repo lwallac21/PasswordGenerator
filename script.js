@@ -7,6 +7,13 @@ var lowerCase = "abcdefghijklmnopqrstuvwxyz"
 var numbers = "0123456789"
 var symbols = "~!@#$%^&*()_+=-`"
 
+//starting values for the function
+var passUp = '';
+var passLow = '';
+var passNum = '';
+var passSym = '';
+var passLength = "";
+
 // Random Functions for Looping later
 var randomFunctions = {
     lower: function () {
@@ -50,30 +57,15 @@ generateEl.addEventListener('click', function (event) {
 
     var passSym = confirm("Would you like special characters in your password?");
 
-    console.log(passUp, passLow, passNum, passSym)
-
-    // Saving confirm values to variables
-    var hasLower = passLow;
-    var hasUpper = passUp;
-    var hasNumber = passNum;
-    var hasSymbol = passSym;
-
-
-    generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, passLength)
+    generatePassword(passLow, passUp, passNum, passSym, passLength)
 
     // generate password function
     function generatePassword(lower, upper, nums, syms, passLength) {
 
-
-
-        var typesCount = lower + upper + nums + syms;
-
         // Get rid of false types from the array used in the loop
         var typesArray = [{ lower }, { upper }, { nums }, { syms }].filter(
-            item => Object.values(item)[0]
+            items => Object.values(items)[0]
         );
-
-        console.log("Array = ", typesArray);
 
         // For Loop within for loop with breaks to stop generating at passLength integer
         for (var i = 0; i < passLength; i++) {
@@ -107,7 +99,6 @@ generateEl.addEventListener('click', function (event) {
 // shuffle function on the new password
     var shuffle = newPassword => newPassword.split('').sort(()=>(Math.random()-0.5)).join('');
 
-
+// write shuffled function to the new
     document.getElementById("password").value = shuffle(newPassword);
-
 });

@@ -1,10 +1,12 @@
 html {
     height: 100%;
 }
+
 body {
     height: 100%;
 }
-section {
+
+section, footer {
     background-color: black;
 }
 
@@ -13,8 +15,8 @@ section {
     height: 100%;
 }
 
-.title {
-    color: ;
+.layout-social .layout-icon {
+    font-size: 3em;
 }
 
 .fun-text {
@@ -27,8 +29,23 @@ section {
     100% {color: orangered}
 }
 
+#sticky-footer {
+    flex-shrink: none;
+}
+
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+ }
+
 #password {
     background-color: gray;
-    font-size: larger;
+    font-size: large;
     transition: all ease-in-out .5s;
 }
+
+#password:hover {
+    background-color: white;
+    font-size:x-large;
+}
+
